@@ -17,7 +17,7 @@ MonoBehaviour:
   max: 100
   value: 100
   delta: -1
-  complaint: I'm bored
+  complaint: I'm bored.
   tresholds: []
   currentTreshold: 0
   thoughtProcess:

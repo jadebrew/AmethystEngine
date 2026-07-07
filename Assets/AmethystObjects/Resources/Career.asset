@@ -17,7 +17,7 @@ MonoBehaviour:
   max: 100
   value: 100
   delta: 0
-  complaint: I should find a job.
+  complaint: I'm jobless.
   tresholds:
   - {fileID: 11400000, guid: 148be00ad6322ed94900afa6a12de74f, type: 2}
   - {fileID: 11400000, guid: 7e75c6a62ef198312821e10cb97aa7d5, type: 2}

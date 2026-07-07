@@ -17,7 +17,7 @@ MonoBehaviour:
   max: 100
   value: 0
   delta: 0
-  complaint: I'm not very distracted.
+  complaint: I'm bored.
   tresholds: []
   currentTreshold: 0
   thoughtProcess: []

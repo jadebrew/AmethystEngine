@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Makes me feel like 3D is a nerf.
   resource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
   modifier: 1
+  requiresFocus: 1
   animationState: drinking
   itemID: held_science

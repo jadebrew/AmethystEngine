@@ -17,4 +17,7 @@ MonoBehaviour:
   max: 100
   value: 100
   delta: 0
-  complaint: I want to make more art.
+  complaint: I'm uninspired.
+  tresholds: []
+  currentTreshold: 0
+  thoughtProcess: []

@@ -9,6 +9,8 @@ public class Item : ScriptableObject
     public Resource resource;
     public int modifier;
 
+    public bool requiresFocus;
+
     public string animationState;
     public string itemID;
 }

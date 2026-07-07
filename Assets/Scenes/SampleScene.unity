@@ -3523,11 +3523,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1913944367}
   m_SourcePrefab: {fileID: 100100000, guid: aa8cf634a30735b93a24c13e92f6b3bf, type: 3}
---- !u!1 &441796316 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7622885058952011309, guid: ee05a3bfaa306aea5b94ab1dd4ff9f95, type: 3}
-  m_PrefabInstance: {fileID: 5002842578391683206}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &441796320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7098303300743185559, guid: ee05a3bfaa306aea5b94ab1dd4ff9f95, type: 3}
@@ -5505,11 +5500,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 88772599}
   m_SourcePrefab: {fileID: 100100000, guid: c72cc26c328aef6c587e2f7c57a9097e, type: 3}
---- !u!1 &678768332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5751699055003581363, guid: 604f22148ceeef117a4af3176fa22dbf, type: 3}
-  m_PrefabInstance: {fileID: 2792109426291604168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &678768334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4943249786607264009, guid: 604f22148ceeef117a4af3176fa22dbf, type: 3}
@@ -6654,23 +6644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375b7ae65f12a372e903d2c19de9ec29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::interactable
-  message: Maybe I should eat something.
-  cameraPoint: {fileID: 412714973}
-  animationState: 
-  Items:
-  - {fileID: 4976888790937284784}
-  - {fileID: 8730979828619185866}
-  - {fileID: 441796316}
-  - {fileID: 678768332}
-  npc: 0
-  npc_name: 
-  isFriend: 0
-  isNurse: 0
-  isAgency: 0
-  selected: 0
-  playerPosition: {fileID: 0}
-  vibecheck: 1
-  quests: []
 --- !u!65 &805418142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8578,8 +8551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Cigarettes
-  item: {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}
 --- !u!4 &1038980411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
@@ -9818,8 +9789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Medicine
-  item: {fileID: 11400000, guid: a56464719066f0e2082941c90e52f40e, type: 2}
 --- !u!4 &1144726896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 52dccc311bef4af2eb2f55653153be95, type: 3}
@@ -10665,8 +10634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Paint
-  item: {fileID: 11400000, guid: 8713fa7be6bb4a918b6674ab82b83172, type: 2}
 --- !u!4 &1220851861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
@@ -10998,6 +10965,7 @@ MonoBehaviour:
   identity: {fileID: 11400000, guid: 42af1b29553f0d27fa17f4f961e276ac, type: 2}
   heldItem: {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}
   heldItem3d: {fileID: 0}
+  resourceIssueDefault: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   resources:
   - {fileID: 11400000, guid: 9b82969dbda8932479d6d4c725f56305, type: 2}
   - {fileID: 11400000, guid: e8eff323866eda62cbf33e7f4ccddb56, type: 2}
@@ -13484,8 +13452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemName: Sciencebook
-  item: {fileID: 11400000, guid: 5662ebc8acfe51345bed83d1aa638744, type: 2}
 --- !u!4 &1576158182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3366835195494890137, guid: 0f63c54adde14a429854bc154a68b655, type: 3}
@@ -15324,8 +15290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Bible
-  item: {fileID: 11400000, guid: c988d4b5fd656402482f5051882bc208, type: 2}
 --- !u!4 &1822415617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7314445737444087361, guid: a6aa79fdee0d08ac38259af7304ef596, type: 3}
@@ -18034,11 +17998,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ba731acd372b3d2f8c5eecde086603e, type: 3}
---- !u!1 &4976888790937284784 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 458138688032468618, guid: 704fadd867aa7d8a2a0b3860f9557348, type: 3}
-  m_PrefabInstance: {fileID: 3117473804062924807}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4976888790937284789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3320679728205410499, guid: 704fadd867aa7d8a2a0b3860f9557348, type: 3}
@@ -18185,11 +18144,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 509492059}
   m_SourcePrefab: {fileID: 100100000, guid: 6e0b8bee9bc2498be9f91d47c8674fda, type: 3}
---- !u!1 &8730979828619185866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5899764561027142815, guid: 2ba731acd372b3d2f8c5eecde086603e, type: 3}
-  m_PrefabInstance: {fileID: 4942602294008714318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8730979828619185871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6894128836565924857, guid: 2ba731acd372b3d2f8c5eecde086603e, type: 3}
