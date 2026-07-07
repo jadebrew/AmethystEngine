@@ -36,23 +36,7 @@ Or Teleport any GameObject from point A to point B.
 - have a conversation with your ex-wife in this scene
 - maybe add a son, but i dont know yet.
 
-# TODO: World Building
-- invent names for the NPCs
-- invent a name for the job center
-- invent a brand for the cola
-- invent a brand for the pizza
-
-# TODO: Low Priority
-- add water as possible drink
-- add different drinks and food.
-- healthier ways to generate dopamine (not just smoking & medicine)
-
 # Stretch goals
 - make it possible to deplete resources with item (for example smoking costs cigarettes)
 - barter/trading -> possibility to trade with NPCs
 - crafting -> create food
-
-# Spoilers / Lore
-- scientific psychosis is kind of fourth wall breaking where the player realizes he is in a game, and nobody believes him - ending unlocks no-clip mode / developer mode
-- artist ending unlocks cosy mode; you get to play the game without real drama, just the nice parts. you start in your house and there is no wife. you get access to the hobbies without psychosis.
-- faith ending; i have no idea- i will think on this.
