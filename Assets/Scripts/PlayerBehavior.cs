@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     private InputAction moveAction;
     private InputAction interactAction;
     private InputAction useAction;
+    private InputAction debugAction;
 
     private bool busy = false;
     private bool inDialogue = false;
@@ -40,6 +41,8 @@ public class PlayerBehavior : MonoBehaviour
 
     public Resource[] resources;
 
+    public GameObject consoleReference;
+
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
 
@@ -51,6 +54,7 @@ public class PlayerBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
         moveAction = playerInput.actions["Move"];
         interactAction = playerInput.actions["Interact"];
+        debugAction = playerInput.actions["Debug"];
         useAction = playerInput.actions["Use"];
         resourceLevels = new Dictionary<string,int>();
         resourceTresholds = new Dictionary<string,int>();
@@ -370,6 +374,7 @@ public class PlayerBehavior : MonoBehaviour
         gametimer+=Time.fixedDeltaTime;
         if (gametimer>gametickrate)
         {
+            print(resourceLevels["Saturation"]);
             resourceIssue = resourceIssueDefault;
             feelings = "I'm fine.";
             canFocus = true;
@@ -403,9 +408,14 @@ public class PlayerBehavior : MonoBehaviour
 
             }
         }
+
+        if (debugAction.WasPressedThisFrame())
+        {
+            consoleReference.SetActive(!consoleReference.activeSelf);
+        }
+
         if (interactAction.WasPressedThisFrame())
         {
-
             if(!inDialogue)
             {
                 startMonologue("Lets see...");
