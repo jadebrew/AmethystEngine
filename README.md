@@ -1,4 +1,4 @@
-# Amethyst, a PSX Style Divorce Simulator with Game Engine as Byproduct
+# AmethystEngine, a PSX Style Divorce Simulator with Game Engine as Byproduct
 originally made for:
 for psx story jam #4
 
