@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Pizza
   description: You know what pizza is.
   resource: {fileID: 11400000, guid: e8eff323866eda62cbf33e7f4ccddb56, type: 2}
-  modifier: 10
+  modifier: 50
+  requiresFocus: 0
   animationState: drinking
   itemID: held_pizza
