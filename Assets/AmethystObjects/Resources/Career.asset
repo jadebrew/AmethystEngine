@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Job Hunting
   min: 0
-  max: 100
-  value: 100
+  max: 75
+  value: 0
   delta: 0
   complaint: I'm jobless.
   tresholds:

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Cigarettes
   description: Good for dopamine regulation.
   resource: {fileID: 11400000, guid: 72f71907b845f7f2a93dc8caf0b1d105, type: 2}
-  modifier: 5
+  modifier: 50
+  requiresFocus: 0
   animationState: smoking
   itemID: held_cigarette
