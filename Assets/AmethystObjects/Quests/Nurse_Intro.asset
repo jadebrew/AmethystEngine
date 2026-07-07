@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
+  m_Name: Nurse_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  questGiver: {fileID: 11400000, guid: 93c7a33ff371adffdae138940276e125, type: 2}
+  description: Your wife has been worried about your mental health, we prepared a
+    hospital bed for you, would you come with us?
+  question: I'm ready.
+  resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
+  required: 0
+  clearedMessage: 'Excellent, we''ll be there shortly. '
+  known: 1
+  doEvent: 1
+  eventRef: {fileID: 11400000, guid: 036f4db48ced76fa182387c793360d04, type: 2}

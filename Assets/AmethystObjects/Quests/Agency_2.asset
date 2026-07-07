@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
+  m_Name: Agency_2
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  questGiver: {fileID: 11400000, guid: 87e79abf7f81c7f2187bfddc941c3038, type: 2}
+  description: We do not have any jobs right now. Please wait, or read the newspaper
+    for new job offers.
+  question: Work?
+  resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
+  required: 50
+  clearedMessage: I see, you want to apply for that job? I'm sorry but you're clearly
+    not qualified.
+  done: 0
