@@ -17,4 +17,7 @@ MonoBehaviour:
   max: 100
   value: 100
   delta: 0
-  complaint: I want to learn more about science.
+  complaint: I'm curious.
+  tresholds: []
+  currentTreshold: 0
+  thoughtProcess: []

@@ -16,6 +16,9 @@ public class PlayerBehavior : MonoBehaviour
 
     private bool busy = false;
     private bool inDialogue = false;
+    private bool inMonologue = false;
+    private bool canFocus = true;
+
     private Entity currentEntity;
     private CameraTrigger currentCamera;
     private Camera mainCamera;
@@ -29,6 +32,11 @@ public class PlayerBehavior : MonoBehaviour
 
     public Item heldItem;
     public GameObject heldItem3d;
+
+    private string feelings = "Fine";
+    private string complaintDescription = "I feel fine.";
+    public Resource resourceIssueDefault;
+    private Resource resourceIssue;
 
     public Resource[] resources;
 
@@ -46,7 +54,7 @@ public class PlayerBehavior : MonoBehaviour
         useAction = playerInput.actions["Use"];
         resourceLevels = new Dictionary<string,int>();
         resourceTresholds = new Dictionary<string,int>();
-
+        resourceIssue = resourceIssueDefault;
         initItem();
 
 
@@ -97,7 +105,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             menu.Add(heldItem.itemName + "?");
             menu.Add(entity.quests[entity.currentQuest].question);
-            menu.Add("Complain");
+            menu.Add(feelings);
             menu.Add("Bye");
             menutype = "Say";
         }
@@ -108,14 +116,33 @@ public class PlayerBehavior : MonoBehaviour
         DialogueUI.Instance.Show(entity.identity.nickname,entity.identity.defaultMessage);
     }
 
+    void startMonologue(string text)
+    {
+        inDialogue = true;
+        inMonologue = true;
+        List<string> menu = new List<string>();
+        string menutype = "Menu";
+        menu.Add(heldItem.itemName);
+        menu.Add("Near");
+        menu.Add("Feeling");
+        menu.Add("Cancel");
+        string[] textmenu = menu.ToArray();
+
+        DialogueUI.Instance.SetMenu(menutype,textmenu);
+        DialogueUI.Instance.selected = 0;
+        DialogueUI.Instance.Show(identity.nickname,text);
+    }
+
     void startBusy(Item item)
     {
         //behavior when starting your item activity
         inDialogue = true;
+        busy = true;
         List<string> menu = new List<string>();
         string menutype = item.itemName;
         menu.Add("Stop");
         string[] textmenu = menu.ToArray();
+
 
         animator.SetBool(heldItem.animationState,true);
 
@@ -134,6 +161,14 @@ public class PlayerBehavior : MonoBehaviour
         var resource = item.resource;
         int goal = resource.max;
         int totalThoughts = resource.thoughtProcess.Length;
+
+        if (item.requiresFocus && !canFocus)
+        {
+            endBusy();
+            endDialogue();
+            startMonologue("I can't focus on " + item.resource.title + " because " + feelings);
+            return;
+        }
 
         //see if there are any tresholds for the resource?
         //(need questgiver to advance past treshold)
@@ -169,18 +204,26 @@ public class PlayerBehavior : MonoBehaviour
         //see if the immersive output is possible, if the goal has reached, use the last immersive output, and if debug is enabled, add debug output
          string debugOutput = "goal: " + goal + ", currently: " + percentage + "% - " +  resourceLevels[resource.title];
         string output = "";
+        bool complete = false;
         if ( currentThought >=0 && currentThought < resource.thoughtProcess.Length)
             output = resource.thoughtProcess[currentThought];
         if (goal == resourceLevels[resource.title])
-            output = resource.thoughtProcess[resource.thoughtProcess.Length-1];
+            {
+                output = resource.thoughtProcess[resource.thoughtProcess.Length-1];
+                complete = true;
+            }
+
         if (debugMode)
             output += "\n" + debugOutput;
 
         float dots = Time.realtimeSinceStartup % 4;
         string strDots = "";
-        for (float i = 1; i < dots; i++)
+        if (!complete)
         {
-            strDots += ".";
+            for (float i = 1; i < dots; i++)
+            {
+                strDots += ".";
+            }
         }
         DialogueUI.Instance.SetDialogueTitle(item.resource.title + strDots);
         DialogueUI.Instance.SetText(output);
@@ -239,7 +282,7 @@ public class PlayerBehavior : MonoBehaviour
         } else if (topic == 3)
         {
             //complain about your feelings TODO
-            DialogueUI.Instance.SetText("Maybe if you got a job I wouldn't have to listen to this!");
+            DialogueUI.Instance.SetText("Make sure you work on your " + resourceIssue.title);
         } else if (topic == 2)
         {
 
@@ -271,6 +314,7 @@ public class PlayerBehavior : MonoBehaviour
     void endDialogue()
     {
         inDialogue = false;
+        inMonologue = false;
         DialogueUI.Instance.Hide();
         animator.SetBool("talking",false);
     }
@@ -309,6 +353,10 @@ public class PlayerBehavior : MonoBehaviour
             animator.SetBool("left", turningLeft);
             animator.SetBool("right", turningRight);
         }
+
+
+
+
         if (inDialogue && moveAction.WasPressedThisFrame()) {
             if(movingForward){
                 DialogueUI.Instance.selected--;
@@ -322,9 +370,26 @@ public class PlayerBehavior : MonoBehaviour
         gametimer+=Time.fixedDeltaTime;
         if (gametimer>gametickrate)
         {
+            resourceIssue = resourceIssueDefault;
+            feelings = "I'm fine.";
+            canFocus = true;
+            // Apply all delta values for each Resource
+            foreach (var r in resources)
+            {
+                resourceLevels[r.title] += r.delta;
+                if (resourceLevels[r.title] < 0)
+                {
+                    resourceLevels[r.title] = 0;
+                    resourceIssue = r;
+                    feelings = r.complaint;
+                    canFocus = false;
+                }
+
+            }
             gametimer = 0;
             if (busy)
             {
+                // If busy apply tool
                 updateBusy(heldItem,true);
 
             }
@@ -335,35 +400,72 @@ public class PlayerBehavior : MonoBehaviour
             if (!inDialogue && heldItem != null)
             {
                 startBusy(heldItem);
-                busy = true;
 
             }
         }
         if (interactAction.WasPressedThisFrame())
         {
-            if(!inDialogue && currentEntity != null) {
-                startDialogue(currentEntity);
+
+            if(!inDialogue)
+            {
+                startMonologue("Lets see...");
                 return;
             }
 
             if(inDialogue) {
-                if(busy){
-                    endBusy();
-                }
-                else if(currentEntity && currentEntity.inventory.Length >0)
-                {
-                    LoadItem(currentEntity.inventory[DialogueUI.Instance.selected]);
-                    endDialogue();
-                }
-                else if(currentEntity && currentEntity.quests.Length>0)
-                {
-                    updateDialogue(currentEntity,DialogueUI.Instance.selected+1);
+                if(!inMonologue){
+                    if(busy){
+                        endBusy();
+                        return;
+                    }
+                    else if(currentEntity && currentEntity.inventory.Length >0)
+                    {
+                        LoadItem(currentEntity.inventory[DialogueUI.Instance.selected]);
+                        endDialogue();
+                        startMonologue("I took the " + heldItem.itemName);
+                        return;
+                    }
+                    else if(currentEntity && currentEntity.quests.Length>0)
+                    {
+                        updateDialogue(currentEntity,DialogueUI.Instance.selected+1);
 
+                    }
                 }
 
-                if(currentEntity && currentEntity.done)
+                if(inMonologue)
+                {
+                    var option = DialogueUI.Instance.selected+1;
+                    if (option == 1)
+                    {
+                        endDialogue();
+                        startBusy(heldItem);
+                        return;
+                    }
+                    else if (option == 2)
+                    {
+                        if(currentEntity != null)
+                        {
+                            endDialogue();
+                            startDialogue(currentEntity);
+                            return;
+                        } else {
+                            DialogueUI.Instance.SetText("Nobody is near.");
+                        }
+
+                    }
+                    else if (option == 3)
+                    {
+                        DialogueUI.Instance.SetText(feelings);
+                    }
+                    else if (option == 4)
+                    {
+                        endDialogue();
+                        return;
+                    }
+                }else if (currentEntity && currentEntity.done)
                 {
                     endDialogue();
+                    return;
                 }
             }
         }

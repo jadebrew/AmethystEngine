@@ -16,5 +16,6 @@ MonoBehaviour:
   description: The Word of God.
   resource: {fileID: 11400000, guid: 6e42fde7df6f3f16397bcaf9502d091a, type: 2}
   modifier: 1
+  requiresFocus: 1
   animationState: useitem
   itemID: held_bible
