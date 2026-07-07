@@ -1,7 +1,6 @@
+# Amethyst, a PSX Style Divorce Simulator 
 originally made for:
-psx style divorce simulator 
 for psx story jam #4
-work in progress
 
 (disclaimer i suffer from psychosis as well as divorce)
 
