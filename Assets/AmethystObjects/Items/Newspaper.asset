@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Newspaper
   description: I only care about the job section.
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
-  modifier: 1
+  modifier: 5
   requiresFocus: 1
   animationState: useitem
   itemID: held_generic
