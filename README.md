@@ -1,7 +1,8 @@
-# AmethystFramework: Amethyst Demiurge
+# AmethystFramework: Amethyst Demiurge 
 originally made for:
 for psx story jam #4
 
+(keep in mind this is work in progress)
 (disclaimer i suffer from psychosis as well as divorce)
 
 # Resources
