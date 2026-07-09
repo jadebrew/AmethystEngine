@@ -12660,8 +12660,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.016479805, y: 0.007841357, z: 0.01845797}
-  m_Center: {x: 0.000019310508, y: 0.00024371404, z: 0.0022534311}
+  m_Size: {x: 0.016479803, y: 0.0065403543, z: 0.018457972}
+  m_Center: {x: 0.000019310712, y: 0.00089421676, z: 0.0022534311}
 --- !u!65 &1127833734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12681,8 +12681,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.016479803, y: 0.011320852, z: 0.018457972}
-  m_Center: {x: 0.000019310712, y: -0.0014960332, z: 0.0022534311}
+  m_Size: {x: 0.016479803, y: 0.013008726, z: 0.018457972}
+  m_Center: {x: 0.000019310712, y: -0.0023399694, z: 0.0022534311}
 --- !u!114 &1127833739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13216,7 +13216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.41004992
+      value: -0.0005916034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalRotation.x
@@ -13224,7 +13224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9120631
+      value: -0.9999998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalRotation.z
@@ -13236,7 +13236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -131.584
+      value: -180.068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -13260,6 +13260,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1220851860}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1220851862}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1220851863}
   m_SourcePrefab: {fileID: 100100000, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
 --- !u!1 &1157141415
 GameObject:
@@ -14408,6 +14414,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
   m_PrefabInstance: {fileID: 1151383110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1220851862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220851859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de73beb6cef7427cc88b63937816fca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity
+  identity: {fileID: 11400000, guid: f53656508f58343e7ab0867b71fbda1c, type: 2}
+  quests: []
+  currentQuest: 0
+  inventory:
+  - {fileID: 11400000, guid: 8713fa7be6bb4a918b6674ab82b83172, type: 2}
+  done: 0
+--- !u!65 &1220851863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220851859}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.197172, y: 6.6102724, z: 8.744927}
+  m_Center: {x: 6.6418967, y: 2.8051362, z: 1.5585314}
 --- !u!1001 &1230475688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14806,7 +14851,7 @@ MonoBehaviour:
   moveSpeed: 1
   turnSpeed: 90
   DebugModifier: 4
-  debugMode: 0
+  debugMode: 1
   identity: {fileID: 11400000, guid: 42af1b29553f0d27fa17f4f961e276ac, type: 2}
   heldItem: {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}
   heldItem3d: {fileID: 0}

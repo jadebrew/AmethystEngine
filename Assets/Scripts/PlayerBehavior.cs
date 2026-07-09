@@ -34,6 +34,7 @@ public class PlayerBehavior : MonoBehaviour
     public Item heldItem;
     public GameObject heldItem3d;
 
+
     private string feelings = "Fine";
     private string complaintDescription = "I feel fine.";
     public Resource resourceIssueDefault;
@@ -41,7 +42,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public Resource[] resources;
 
-    private GameObject consoleReference;
+    public GameObject consoleReference;
     private GameObject terminalRef;
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
@@ -60,6 +61,8 @@ public class PlayerBehavior : MonoBehaviour
         resourceTresholds = new Dictionary<string,int>();
         resourceIssue = resourceIssueDefault;
         initItem();
+
+        consoleReference.SetActive(false);
 
 
 
@@ -207,7 +210,7 @@ public class PlayerBehavior : MonoBehaviour
         }
 
         //fuckywucky code bc i dont remember how fractions work and i dropped out of kindergarten
-        float percentage = 100/goal*resourceLevels[resource.title];
+        float percentage = 100*resourceLevels[resource.title]/goal;
         int currentThought = Mathf.FloorToInt((totalThoughts-1)*(percentage/100));
 
         //see if the immersive output is possible, if the goal has reached, use the last immersive output, and if debug is enabled, add debug output
@@ -297,7 +300,7 @@ public class PlayerBehavior : MonoBehaviour
 
             if (entity.quests[entity.currentQuest])
             {
-                if ( resourceLevels[entity.quests[entity.currentQuest].resource.title] >= entity.quests[entity.currentQuest].required)
+                if (entity.quests[entity.currentQuest].known && resourceLevels[entity.quests[entity.currentQuest].resource.title] >= entity.quests[entity.currentQuest].required)
                 {
                     //the item is right, you are aware of the quest, and you have enough resource
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].clearedMessage);
@@ -416,7 +419,9 @@ public class PlayerBehavior : MonoBehaviour
 
         if (debugAction.WasPressedThisFrame())
         {
-            consoleReference.SetActive(!consoleReference.activeSelf);
+            debugMode = !debugMode;
+            consoleReference.SetActive(debugMode);
+
         }
 
         if (interactAction.WasPressedThisFrame())
