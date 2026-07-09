@@ -18,9 +18,10 @@ MonoBehaviour:
   value: 0
   delta: 0
   complaint: I'm Faithless.
-  tresholds: []
+  tresholds:
+  - {fileID: 11400000, guid: 37f16c33ddbcdc546b4a83f791f7ec2b, type: 2}
   currentTreshold: 0
   thoughtProcess:
   - Ah I see.
   - So God created the Earth
-  - 
+  - Chapter complete! I feel so blessed now!

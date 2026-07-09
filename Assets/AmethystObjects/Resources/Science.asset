@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Scientific Research
   min: 0
-  max: 100
-  value: 100
+  max: 75
+  value: 0
   delta: 0
   complaint: I'm curious.
-  tresholds: []
+  tresholds:
+  - {fileID: 11400000, guid: 25225bb0bd4b9399fae4e46d142fe7cc, type: 2}
   currentTreshold: 0
-  thoughtProcess: []
+  thoughtProcess:
+  - Hmhm...
+  - So light isn't instant?
+  - E=mc2...
+  - Time is a dimension?
+  - Eureka! I found a new formula!
