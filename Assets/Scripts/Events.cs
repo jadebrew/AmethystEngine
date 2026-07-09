@@ -9,4 +9,6 @@ public class Events : ScriptableObject
     public string target_id;
     public string goal_id;
     public string postCamPoint_id;
+    public bool changeMusic;
+    public string nextMusic;
 }
