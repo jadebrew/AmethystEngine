@@ -17,7 +17,7 @@ MonoBehaviour:
   question: Work?
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   required: 75
-  clearedMessage: It's too late now.
-  known: 0
-  doEvent: 0
+  clearedMessage: It's too late now. I called the doctor, we're worried about you.
+  known: 1
+  doEvent: 1
   eventRef: {fileID: 11400000, guid: 1a9b2277574eff6c08d76bb4cc45890d, type: 2}

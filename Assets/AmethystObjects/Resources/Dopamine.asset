@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5c2ebbc5fc4bd0387df3512551c329, type: 3}
   m_Name: Dopamine
   m_EditorClassIdentifier: Assembly-CSharp::Resource
-  title: Dopamine
+  title: Fun
   min: 0
   max: 500
   value: 100

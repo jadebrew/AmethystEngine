@@ -18,6 +18,12 @@ MonoBehaviour:
   value: 0
   delta: 0
   complaint: I'm uninspired.
-  tresholds: []
+  tresholds:
+  - {fileID: 11400000, guid: 81bf9359481b2bef9aef13c83428022a, type: 2}
   currentTreshold: 0
-  thoughtProcess: []
+  thoughtProcess:
+  - A little red here...
+  - A little blue there...
+  - There are no mistakes...
+  - Only happy accidents...
+  - And... done!

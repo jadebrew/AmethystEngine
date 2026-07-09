@@ -41,8 +41,8 @@ public class PlayerBehavior : MonoBehaviour
 
     public Resource[] resources;
 
-    public GameObject consoleReference;
-
+    private GameObject consoleReference;
+    private GameObject terminalRef;
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
 
@@ -62,9 +62,10 @@ public class PlayerBehavior : MonoBehaviour
         initItem();
 
 
+
         foreach (Resource res in resources)
         {
-            resourceLevels.Add(res.title,0);
+            resourceLevels.Add(res.title,res.value);
             resourceTresholds.Add(res.title,0);
         }
     }
@@ -107,8 +108,8 @@ public class PlayerBehavior : MonoBehaviour
         }
         else if(entity.quests.Length>0)
         {
-            menu.Add(heldItem.itemName + "?");
             menu.Add(entity.quests[entity.currentQuest].question);
+            menu.Add(heldItem.itemName + "?");
             menu.Add(feelings);
             menu.Add("Bye");
             menutype = "Say";
@@ -126,8 +127,12 @@ public class PlayerBehavior : MonoBehaviour
         inMonologue = true;
         List<string> menu = new List<string>();
         string menutype = "Menu";
+        if (currentEntity)
+            menu.Add(currentEntity.identity.nickname);
+        else {
+            menu.Add("???");
+        }
         menu.Add(heldItem.itemName);
-        menu.Add("Near");
         menu.Add("Feeling");
         menu.Add("Cancel");
         string[] textmenu = menu.ToArray();
@@ -265,7 +270,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void updateDialogue(Entity entity, int topic)
     {
-        if (topic == 1)
+        if (topic == 2)
         {
             //topic is your held item
 
@@ -287,7 +292,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             //complain about your feelings TODO
             DialogueUI.Instance.SetText("Make sure you work on your " + resourceIssue.title);
-        } else if (topic == 2)
+        } else if (topic == 1)
         {
 
             if (entity.quests[entity.currentQuest])
@@ -445,13 +450,13 @@ public class PlayerBehavior : MonoBehaviour
                 if(inMonologue)
                 {
                     var option = DialogueUI.Instance.selected+1;
-                    if (option == 1)
+                    if (option == 2)
                     {
                         endDialogue();
                         startBusy(heldItem);
                         return;
                     }
-                    else if (option == 2)
+                    else if (option == 1)
                     {
                         if(currentEntity != null)
                         {

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
-  m_Name: Career_2
+  m_Name: Science_1
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  questGiver: {fileID: 11400000, guid: 00d3f5595dcad5d20a0bae0d9fac216d, type: 2}
-  description: You still don't have a job, go find one.
-  question: Work?
-  resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
-  required: 50
-  clearedMessage: Well,this won't work either, try to find a different one.
+  questGiver: {fileID: 11400000, guid: f15e74d0597a47fe99ab15de5ceacec1, type: 2}
+  description: Get better at science?
+  question: Hobby?
+  resource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
+  required: 25
+  clearedMessage: Wow that's so intelligent.
   known: 0
   doEvent: 0
   eventRef: {fileID: 0}

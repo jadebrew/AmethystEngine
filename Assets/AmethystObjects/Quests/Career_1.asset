@@ -19,5 +19,8 @@ MonoBehaviour:
   question: Whats up?
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   required: 25
-  clearedMessage: I see you've found job offer, that's good.
-  done: 0
+  clearedMessage: I see you've found job offer, but no, this won't work, find a different
+    one?
+  known: 0
+  doEvent: 0
+  eventRef: {fileID: 0}

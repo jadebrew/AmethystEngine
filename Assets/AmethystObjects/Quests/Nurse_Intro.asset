@@ -20,5 +20,5 @@ MonoBehaviour:
   required: 0
   clearedMessage: 'Excellent, we''ll be there shortly. '
   known: 0
-  doEvent: 0
+  doEvent: 1
   eventRef: {fileID: 11400000, guid: 036f4db48ced76fa182387c793360d04, type: 2}
