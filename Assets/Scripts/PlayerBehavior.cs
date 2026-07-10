@@ -49,6 +49,7 @@ public class PlayerBehavior : MonoBehaviour
 
      public AudioSource bgmDronedAudioSource;
      public AudioSource bgmHappyAudioSource;
+     public AudioSource sfxSelectAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -383,10 +384,12 @@ public class PlayerBehavior : MonoBehaviour
         if (inDialogue && moveAction.WasPressedThisFrame()) {
             if(movingForward){
                 DialogueUI.Instance.selected--;
+                sfxSelectAudioSource.Play();
                 return;
             }
             else if (movingBackward) {
                 DialogueUI.Instance.selected++;
+                sfxSelectAudioSource.Play();
                 return;
             }
         }

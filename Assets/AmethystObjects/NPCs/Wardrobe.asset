@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wardrobe
   m_EditorClassIdentifier: Assembly-CSharp::Identity
   fullname: 
-  nickname: Wardrobe
-  defaultMessage: Medicine, cigarettes, bible...\nPick your potion I guess
+  nickname: Bookcase
+  defaultMessage: Science, Manuals, Bible...\nPick your potion I guess
   model: {fileID: 0}

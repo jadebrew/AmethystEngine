@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: RadioChange
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   questGiver: {fileID: 11400000, guid: ca5c985cd8e93f580a6b92d78e0dd79d, type: 2}
-  description: I'm not handy enough to change this radio.
+  description: I'm not handy enough to change the station, maybe I can find a manual
+    somewhere.
   question: Change Station
   resource: {fileID: 11400000, guid: 58707e9b43bf2bcde9ba53e59b038d5b, type: 2}
   required: 25
   clearedMessage: Uh oh, I broke it.
-  known: 0
+  known: 1
   doEvent: 1
   eventRef: {fileID: 11400000, guid: 0de86b994f93879e498a2abbccb29010, type: 2}

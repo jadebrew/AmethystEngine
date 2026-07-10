@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Handiness
   min: 0
-  max: 25
+  max: 100
   value: 0
   delta: 0
   complaint: I'm not very handy.
-  tresholds: []
+  tresholds:
+  - {fileID: 11400000, guid: 3f89529bd97d24bffb9eb70799753f6d, type: 2}
   currentTreshold: 0
   thoughtProcess:
   - Lets see the manual?

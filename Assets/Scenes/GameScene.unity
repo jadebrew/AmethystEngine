@@ -2196,6 +2196,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24aac968278c57c03acaf12a64b60b83, type: 2}
   - {fileID: 11400000, guid: efb126d29bb4d8a6f9210d1437989eb1, type: 2}
   - {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}
+  - {fileID: 11400000, guid: 849eea9d662767fc58eb4837fddf10da, type: 2}
   done: 0
 --- !u!4 &207383368 stripped
 Transform:
@@ -12727,8 +12728,7 @@ MonoBehaviour:
   inventory:
   - {fileID: 11400000, guid: c988d4b5fd656402482f5051882bc208, type: 2}
   - {fileID: 11400000, guid: 5662ebc8acfe51345bed83d1aa638744, type: 2}
-  - {fileID: 11400000, guid: a56464719066f0e2082941c90e52f40e, type: 2}
-  - {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}
+  - {fileID: 11400000, guid: a0ca19be3d6028ee59632d84320580fd, type: 2}
   done: 0
 --- !u!1 &1128200896 stripped
 GameObject:
@@ -15033,10 +15033,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 602ac1ac99cbe5a7abbb885c0b43ecc8, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15133,7 +15133,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
