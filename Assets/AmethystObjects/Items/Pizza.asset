@@ -19,3 +19,4 @@ MonoBehaviour:
   requiresFocus: 0
   animationState: drinking
   itemID: held_pizza
+  model: {fileID: 1340031858226044152, guid: 2ed6b9e2acc48b49692bfe76e0133a44, type: 3}

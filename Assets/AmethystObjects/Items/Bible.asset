@@ -19,3 +19,4 @@ MonoBehaviour:
   requiresFocus: 1
   animationState: useitem
   itemID: held_bible
+  model: {fileID: 1177867659288952687, guid: a69981017f817ada8a87f9f6cde4c252, type: 3}

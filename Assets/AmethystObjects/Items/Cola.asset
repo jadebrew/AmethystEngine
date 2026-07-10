@@ -19,3 +19,4 @@ MonoBehaviour:
   requiresFocus: 0
   animationState: drinking
   itemID: held_bottle
+  model: {fileID: 1279986637672268937, guid: 9a4529b50ea7bcacbabed5a4012a03fd, type: 3}

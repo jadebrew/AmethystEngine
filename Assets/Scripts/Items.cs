@@ -13,4 +13,6 @@ public class Item : ScriptableObject
 
     public string animationState;
     public string itemID;
+
+    public GameObject model;
 }
