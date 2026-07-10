@@ -17,5 +17,5 @@ MonoBehaviour:
   resource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
   modifier: 5
   requiresFocus: 1
-  animationState: drinking
+  animationState: useitem
   itemID: held_science

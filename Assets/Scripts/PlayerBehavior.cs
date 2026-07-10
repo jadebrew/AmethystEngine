@@ -47,6 +47,10 @@ public class PlayerBehavior : MonoBehaviour
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
 
+     public AudioSource bgmDronedAudioSource;
+     public AudioSource bgmHappyAudioSource;
+     public AudioSource sfxSelectAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -64,7 +68,7 @@ public class PlayerBehavior : MonoBehaviour
 
         consoleReference.SetActive(false);
 
-
+        bgmHappyAudioSource.Play();
 
         foreach (Resource res in resources)
         {
@@ -269,6 +273,14 @@ public class PlayerBehavior : MonoBehaviour
         {
             mainCamera.transform.position = camPoint.transform.position;
         }
+        if (currentEvent.changeMusic)
+        {
+            if (currentEvent.nextMusic == "drone")
+            {
+                bgmHappyAudioSource.Stop();
+                bgmDronedAudioSource.Play();
+            }
+        }
     }
 
     void updateDialogue(Entity entity, int topic)
@@ -372,10 +384,12 @@ public class PlayerBehavior : MonoBehaviour
         if (inDialogue && moveAction.WasPressedThisFrame()) {
             if(movingForward){
                 DialogueUI.Instance.selected--;
+                sfxSelectAudioSource.Play();
                 return;
             }
             else if (movingBackward) {
                 DialogueUI.Instance.selected++;
+                sfxSelectAudioSource.Play();
                 return;
             }
         }
