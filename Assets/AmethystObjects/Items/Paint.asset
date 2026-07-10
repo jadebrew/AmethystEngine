@@ -19,3 +19,4 @@ MonoBehaviour:
   requiresFocus: 1
   animationState: useitem
   itemID: held_generic
+  model: {fileID: 8661564363038335832, guid: 40aece6c22b18c95c841ed4b81ee41e0, type: 3}

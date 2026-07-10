@@ -21,7 +21,9 @@ public class PlayerBehavior : MonoBehaviour
     private bool canFocus = true;
 
     private Entity currentEntity;
-    private CameraTrigger currentCamera;
+    private GameObject currentCamera;
+    private GameObject previousCamera;
+
     private Camera mainCamera;
     private float gametimer;
     private int gametickrate = 1;
@@ -41,6 +43,7 @@ public class PlayerBehavior : MonoBehaviour
     private Resource resourceIssue;
 
     public Resource[] resources;
+    public GameObject viewing;
 
     public GameObject consoleReference;
     private GameObject terminalRef;
@@ -50,6 +53,8 @@ public class PlayerBehavior : MonoBehaviour
      public AudioSource bgmDronedAudioSource;
      public AudioSource bgmHappyAudioSource;
      public AudioSource sfxSelectAudioSource;
+     public AudioSource confirmAudioSource;
+     public AudioSource denyAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,9 +89,9 @@ public class PlayerBehavior : MonoBehaviour
 
         if (!inDialogue && other.TryGetComponent(out CameraTrigger CameraPoint))
         {
-            currentCamera = CameraPoint;
+            currentCamera = CameraPoint.GetObject();
             mainCamera = Camera.main;
-            mainCamera.transform.SetPositionAndRotation(currentCamera.GetObject().transform.position, currentCamera.GetObject().transform.rotation);
+            mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
         }
     }
 
@@ -120,6 +125,13 @@ public class PlayerBehavior : MonoBehaviour
             menu.Add(feelings);
             menu.Add("Bye");
             menutype = "Say";
+        }
+
+        previousCamera = currentCamera;
+        if (entity.CameraPoint != null)
+        {
+            currentCamera = entity.CameraPoint;
+            mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
         }
         string[] textmenu = menu.ToArray();
 
@@ -183,6 +195,7 @@ public class PlayerBehavior : MonoBehaviour
             endBusy();
             endDialogue();
             startMonologue("I can't focus on " + item.resource.title + " because " + feelings);
+            denyAudioSource.Play();
             return;
         }
 
@@ -297,16 +310,19 @@ public class PlayerBehavior : MonoBehaviour
 
                     // the item is right but your resource isnt high enough
                     DialogueUI.Instance.SetText(heldItem.itemName + " works!\nWork on your " + entity.quests[entity.currentQuest].resource.title + " and come back!");
+                    denyAudioSource.Play();
 
                 } else {
                     // the item is wrong
                     DialogueUI.Instance.SetText("Oh, " + heldItem.itemName + ". Need some " + heldItem.resource.title + "?");
+                    denyAudioSource.Play();
                 }
             }
         } else if (topic == 3)
         {
             //complain about your feelings TODO
             DialogueUI.Instance.SetText("Make sure you work on your " + resourceIssue.title);
+            confirmAudioSource.Play();
         } else if (topic == 1)
         {
 
@@ -318,18 +334,25 @@ public class PlayerBehavior : MonoBehaviour
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].clearedMessage);
                     resourceTresholds[entity.quests[entity.currentQuest].resource.title]++;
                     if (entity.quests[entity.currentQuest].doEvent)
+                    {
+                        confirmAudioSource.Play();
                         doEvent(entity);
-
+                    }
                     if (entity.quests.Length-1 > entity.currentQuest)
+                    {
                         entity.currentQuest++;
+                        confirmAudioSource.Play();
+                    }
                 } else {
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].description);
                     entity.quests[entity.currentQuest].known = true;
+                    confirmAudioSource.Play();
                 }
             }
         } else if (topic == 4)
         {
             DialogueUI.Instance.SetText("Fine! Bye!");
+            denyAudioSource.Play();
             entity.done = true;
         }
     }
@@ -337,10 +360,18 @@ public class PlayerBehavior : MonoBehaviour
 
     void endDialogue()
     {
+        if (currentEntity.CameraPoint != null)
+        {
+            currentCamera = previousCamera;
+            mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
+        }
         inDialogue = false;
         inMonologue = false;
         DialogueUI.Instance.Hide();
         animator.SetBool("talking",false);
+        foreach (Transform child in viewing.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
     void initItem()
@@ -393,6 +424,19 @@ public class PlayerBehavior : MonoBehaviour
                 return;
             }
         }
+
+        if (inDialogue && !inMonologue && !busy && currentEntity && currentEntity.inventory.Length >0)
+        {
+            foreach (Transform child in viewing.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+            var newObject = Instantiate(currentEntity.inventory[DialogueUI.Instance.selected].model,viewing.transform.position,viewing.transform.rotation);
+            newObject.transform.SetParent(viewing.transform, true);
+            Quaternion target = Quaternion.Euler(0, Time.timeSinceLevelLoad * 90, 0);
+            newObject.transform.rotation = Quaternion.Slerp(newObject.transform.rotation, target,1);
+            DialogueUI.Instance.SetText(currentEntity.inventory[DialogueUI.Instance.selected].description);
+        }
+
         gametimer+=Time.fixedDeltaTime;
         if (gametimer>gametickrate)
         {
@@ -427,7 +471,7 @@ public class PlayerBehavior : MonoBehaviour
             if (!inDialogue && heldItem != null)
             {
                 startBusy(heldItem);
-
+                confirmAudioSource.Play();
             }
         }
 
@@ -443,6 +487,7 @@ public class PlayerBehavior : MonoBehaviour
             if(!inDialogue)
             {
                 startMonologue("Lets see...");
+                confirmAudioSource.Play();
                 return;
             }
 
@@ -450,19 +495,21 @@ public class PlayerBehavior : MonoBehaviour
                 if(!inMonologue){
                     if(busy){
                         endBusy();
+                        denyAudioSource.Play();
                         return;
                     }
                     else if(currentEntity && currentEntity.inventory.Length >0)
                     {
                         LoadItem(currentEntity.inventory[DialogueUI.Instance.selected]);
                         endDialogue();
+                        confirmAudioSource.Play();
                         startMonologue("I took the " + heldItem.itemName);
                         return;
                     }
                     else if(currentEntity && currentEntity.quests.Length>0)
                     {
+                        confirmAudioSource.Play();
                         updateDialogue(currentEntity,DialogueUI.Instance.selected+1);
-
                     }
                 }
 
@@ -473,6 +520,7 @@ public class PlayerBehavior : MonoBehaviour
                     {
                         endDialogue();
                         startBusy(heldItem);
+                        confirmAudioSource.Play();
                         return;
                     }
                     else if (option == 1)
@@ -481,24 +529,29 @@ public class PlayerBehavior : MonoBehaviour
                         {
                             endDialogue();
                             startDialogue(currentEntity);
+                            confirmAudioSource.Play();
                             return;
                         } else {
                             DialogueUI.Instance.SetText("Nobody is near.");
+                            denyAudioSource.Play();
                         }
 
                     }
                     else if (option == 3)
                     {
                         DialogueUI.Instance.SetText(feelings);
+                        confirmAudioSource.Play();
                     }
                     else if (option == 4)
                     {
                         endDialogue();
+                        denyAudioSource.Play();
                         return;
                     }
                 }else if (currentEntity && currentEntity.done)
                 {
                     endDialogue();
+                    denyAudioSource.Play();
                     return;
                 }
             }

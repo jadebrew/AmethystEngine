@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
     public bool done;
     public Event[] events;
 
+    public GameObject CameraPoint;
+
     public void Update()
     {
 

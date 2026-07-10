@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1331059585198548534}
   - component: {fileID: 6803305317055434942}
   - component: {fileID: 2723777179118963888}
-  - component: {fileID: 5136149422111073433}
   m_Layer: 0
   m_Name: Newspaper
   m_TagString: Untagged
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6192336133005830536, guid: 6b5a1b6385cdb8e4a83ac4deaed46ebe, type: 3}
+  - {fileID: 2100000, guid: 107c2d2e2766fb829ac55edba849d5df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,17 +90,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5136149422111073433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6610857547988859297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Newspaper
-  item: {fileID: 11400000, guid: 90a1350527bfc542e87eb1e07d2b0364, type: 2}

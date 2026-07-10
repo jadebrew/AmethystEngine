@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4532665382815916362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8768098109232183587}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8768098109232183587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4532665382815916362}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6894128836565924857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5899764561027142815
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +43,6 @@ GameObject:
   - component: {fileID: 2530387198878521296}
   - component: {fileID: 874047079868766590}
   - component: {fileID: 9094686375028469267}
-  - component: {fileID: 208655953401836080}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -28,13 +58,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5899764561027142815}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.68301266, y: -0.18301268, z: -0.1830127, w: 0.6830127}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -0.199, y: 1.256, z: -30.773}
   m_LocalScale: {x: 41.253315, y: 41.253315, z: 41.253307}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8768098109232183587}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!33 &2530387198878521296
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,17 +144,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.002938123, y: 0.0033926507, z: 0.0125167845}
   m_Center: {x: -1.5906845e-10, y: -0.000000003708619, z: 0.0010438468}
---- !u!114 &208655953401836080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5899764561027142815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Cola
-  item: {fileID: 11400000, guid: 24aac968278c57c03acaf12a64b60b83, type: 2}

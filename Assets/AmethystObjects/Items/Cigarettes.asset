@@ -19,3 +19,4 @@ MonoBehaviour:
   requiresFocus: 0
   animationState: smoking
   itemID: held_cigarette
+  model: {fileID: 5751699055003581363, guid: 604f22148ceeef117a4af3176fa22dbf, type: 3}

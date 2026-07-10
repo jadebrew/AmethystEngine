@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e56b501463058574fb767673c95352f2, type: 2}
     - target: {fileID: 919132149155446097, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
       propertyPath: m_Name
-      value: cigs_carton (1)
+      value: Cigs
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
       propertyPath: m_LocalScale.x
@@ -95,27 +95,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3362599567196240544}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
---- !u!1 &5751699055003581363 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
-  m_PrefabInstance: {fileID: 4833288192993855202}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3362599567196240544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5751699055003581363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c64170a26dcac0f19ce41438c4a3163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::isItem
-  itemName: Cigarettes
-  item: {fileID: 11400000, guid: 356909cb9cb1dd8afaf2fa2085962258, type: 2}

@@ -16,5 +16,7 @@ MonoBehaviour:
   description: Should alleviate anxiety.
   resource: {fileID: 11400000, guid: 72f71907b845f7f2a93dc8caf0b1d105, type: 2}
   modifier: -5
+  requiresFocus: 0
   animationState: drinking
   itemID: held_generic
+  model: {fileID: 7622885058952011309, guid: ee05a3bfaa306aea5b94ab1dd4ff9f95, type: 3}
