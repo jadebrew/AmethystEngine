@@ -134,11 +134,12 @@ public class PlayerBehavior : MonoBehaviour
             menutype = "Say";
         }
 
-        previousCamera = currentCamera;
         if (entity.CameraPoint != null)
         {
+            previousCamera = currentCamera;
             currentCamera = entity.CameraPoint;
             mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
+            mainCamera.GetComponent<lookat>().follow = false;
         }
         string[] textmenu = menu.ToArray();
 
@@ -367,10 +368,12 @@ public class PlayerBehavior : MonoBehaviour
 
     void endDialogue()
     {
-        if (currentEntity != null && previousCamera != null)
+        if (previousCamera != null)
         {
             currentCamera = previousCamera;
             mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
+            mainCamera.GetComponent<lookat>().follow = true;
+            previousCamera = null;
         }
         inDialogue = false;
         inMonologue = false;

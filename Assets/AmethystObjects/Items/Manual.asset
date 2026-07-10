@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee217c8a4666779da56323f09cbe4d0, type: 3}
   m_Name: Manual
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: Radio Manual
-  description: This makes me understand radios
+  itemName: Handbook
+  description: Useful tips for any tinkerer.
   resource: {fileID: 11400000, guid: 58707e9b43bf2bcde9ba53e59b038d5b, type: 2}
   modifier: 5
   requiresFocus: 1

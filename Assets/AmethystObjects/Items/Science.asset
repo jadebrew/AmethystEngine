@@ -19,4 +19,4 @@ MonoBehaviour:
   requiresFocus: 1
   animationState: useitem
   itemID: held_science
-  model: {fileID: 982284833680701942, guid: 9168f0665b3dabe32a9f0cc095c8f2c9, type: 3}
+  model: {fileID: 4966136246609324999, guid: ccfec27521dfd49f0be539e59ddcb885, type: 3}
