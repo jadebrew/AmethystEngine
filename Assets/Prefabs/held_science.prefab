@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 404523211070347845}
   - component: {fileID: 423026288247959109}
   - component: {fileID: 1542428278825779971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: held_science
   m_TagString: Untagged
   m_Icon: {fileID: 0}

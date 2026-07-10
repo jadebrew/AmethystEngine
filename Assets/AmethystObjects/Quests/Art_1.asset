@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Art_1
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   questGiver: {fileID: 11400000, guid: 704dbcccbb32ea4ea94d64c888da30cb, type: 2}
-  description: Get better at art
+  description: The only thing I care for is art, can you make me a painting?
   question: Hobby?
   resource: {fileID: 11400000, guid: 575ef231fb8cda7c1b3983de52a18b5e, type: 2}
   required: 25
-  clearedMessage: You are better at art.
+  clearedMessage: For a first? Not bad! Keep it up!
   known: 1
+  rewardResource: {fileID: 11400000, guid: 4a002c371a9252f23bfb4dae10e03d5f, type: 2}
+  rewardAmount: 1
   doEvent: 0
   eventRef: {fileID: 0}

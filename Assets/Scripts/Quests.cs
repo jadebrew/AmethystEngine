@@ -11,6 +11,9 @@ public class Quest : ScriptableObject
     public string clearedMessage;
     public bool known;
 
+    public Resource rewardResource;
+    public int rewardAmount;
+
     public bool doEvent;
     public Events eventRef;
 }

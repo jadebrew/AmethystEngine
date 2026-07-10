@@ -16,8 +16,10 @@ MonoBehaviour:
   description: Please try to find a hobby?
   question: What now?
   resource: {fileID: 11400000, guid: 4a002c371a9252f23bfb4dae10e03d5f, type: 2}
-  required: 25
-  clearedMessage: 
-  known: 0
+  required: 1
+  clearedMessage: Looks like you are well on your way finding a hobby! Keep it up!
+  known: 1
+  rewardResource: {fileID: 0}
+  rewardAmount: 0
   doEvent: 0
   eventRef: {fileID: 0}

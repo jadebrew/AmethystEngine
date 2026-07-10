@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7990974051633188624}
   - component: {fileID: 8119320265081446427}
   - component: {fileID: 1895301247652771687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +180,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: paintcan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 521c1a570783b4955833952a8f74ad23, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -222,6 +230,7 @@ MonoBehaviour:
   inventory:
   - {fileID: 11400000, guid: 8713fa7be6bb4a918b6674ab82b83172, type: 2}
   done: 0
+  CameraPoint: {fileID: 0}
 --- !u!65 &1521714354912835841
 BoxCollider:
   m_ObjectHideFlags: 0

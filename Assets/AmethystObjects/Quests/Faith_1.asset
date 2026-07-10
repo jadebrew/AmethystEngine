@@ -19,5 +19,7 @@ MonoBehaviour:
   required: 25
   clearedMessage: Jesus loves you!
   known: 1
+  rewardResource: {fileID: 11400000, guid: 4a002c371a9252f23bfb4dae10e03d5f, type: 2}
+  rewardAmount: 1
   doEvent: 0
   eventRef: {fileID: 0}

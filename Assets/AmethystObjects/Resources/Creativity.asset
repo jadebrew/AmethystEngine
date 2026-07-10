@@ -20,6 +20,8 @@ MonoBehaviour:
   complaint: I'm uninspired.
   tresholds:
   - {fileID: 11400000, guid: 81bf9359481b2bef9aef13c83428022a, type: 2}
+  - {fileID: 11400000, guid: 4b9f7eec127ff1b32b259b3a2463a57c, type: 2}
+  - {fileID: 11400000, guid: a09a62a0167f1ce64832a898e99808e4, type: 2}
   currentTreshold: 0
   thoughtProcess:
   - A little red here...

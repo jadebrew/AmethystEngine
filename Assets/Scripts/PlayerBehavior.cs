@@ -58,6 +58,7 @@ public class PlayerBehavior : MonoBehaviour
 
      public AudioSource bgmDronedAudioSource;
      public AudioSource bgmHappyAudioSource;
+     public AudioSource bgmAngelsAudioSource;
      public AudioSource sfxSelectAudioSource;
      public AudioSource confirmAudioSource;
      public AudioSource denyAudioSource;
@@ -300,6 +301,13 @@ public class PlayerBehavior : MonoBehaviour
             {
                 bgmHappyAudioSource.Stop();
                 bgmDronedAudioSource.Play();
+                bgmAngelsAudioSource.Stop();
+            }
+            if (currentEvent.nextMusic == "angels")
+            {
+                bgmHappyAudioSource.Stop();
+                bgmDronedAudioSource.Stop();
+                bgmAngelsAudioSource.Play();
             }
         }
     }
@@ -341,6 +349,12 @@ public class PlayerBehavior : MonoBehaviour
                     //the item is right, you are aware of the quest, and you have enough resource
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].clearedMessage);
                     resourceTresholds[entity.quests[entity.currentQuest].resource.title]++;
+                    if (entity.quests[entity.currentQuest].rewardResource != null)
+                    {
+                        var quest = entity.quests[entity.currentQuest];
+                        resourceLevels[quest.rewardResource.title] += quest.rewardAmount;
+
+                    }
                     if (entity.quests[entity.currentQuest].doEvent)
                     {
                         confirmAudioSource.Play();
@@ -351,6 +365,7 @@ public class PlayerBehavior : MonoBehaviour
                         entity.currentQuest++;
                         confirmAudioSource.Play();
                     }
+
                 } else {
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].description);
                     entity.quests[entity.currentQuest].known = true;

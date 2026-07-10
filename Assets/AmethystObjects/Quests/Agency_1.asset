@@ -19,4 +19,8 @@ MonoBehaviour:
   required: 25
   clearedMessage: I see, you found that in the newspaper? That job has unfortunately
     been taken..
-  done: 0
+  known: 1
+  rewardResource: {fileID: 0}
+  rewardAmount: 0
+  doEvent: 0
+  eventRef: {fileID: 0}

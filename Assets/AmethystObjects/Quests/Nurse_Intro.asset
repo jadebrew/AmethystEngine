@@ -19,6 +19,8 @@ MonoBehaviour:
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   required: 0
   clearedMessage: 'Excellent, we''ll be there shortly. '
-  known: 0
+  known: 1
+  rewardResource: {fileID: 0}
+  rewardAmount: 0
   doEvent: 1
   eventRef: {fileID: 11400000, guid: 036f4db48ced76fa182387c793360d04, type: 2}

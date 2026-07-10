@@ -21,6 +21,8 @@ MonoBehaviour:
   required: 25
   clearedMessage: I see you've found job offer, but no, this won't work, find a different
     one?
-  known: 0
+  known: 1
+  rewardResource: {fileID: 11400000, guid: bb1cf4bce6cd8376cbce2d91d862e46e, type: 2}
+  rewardAmount: 1
   doEvent: 0
   eventRef: {fileID: 0}

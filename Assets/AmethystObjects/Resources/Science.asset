@@ -20,6 +20,8 @@ MonoBehaviour:
   complaint: I'm curious.
   tresholds:
   - {fileID: 11400000, guid: 25225bb0bd4b9399fae4e46d142fe7cc, type: 2}
+  - {fileID: 11400000, guid: d508822a38f507c3ea4eb9cd4c9eae61, type: 2}
+  - {fileID: 11400000, guid: e51c44d8138a42bc49e84b2ba6a1da15, type: 2}
   currentTreshold: 0
   thoughtProcess:
   - Hmhm...

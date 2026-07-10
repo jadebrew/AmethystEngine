@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cigs
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.53493255
@@ -91,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 1151388028547126963, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 61235e7cca1529792b60e1aa743a1a01, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

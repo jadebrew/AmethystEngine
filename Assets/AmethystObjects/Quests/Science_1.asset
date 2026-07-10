@@ -18,6 +18,8 @@ MonoBehaviour:
   resource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
   required: 25
   clearedMessage: Wow that's so intelligent.
-  known: 0
+  known: 1
+  rewardResource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
+  rewardAmount: 1
   doEvent: 0
   eventRef: {fileID: 0}

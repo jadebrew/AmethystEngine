@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
+  m_Name: Science_1 2
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  questGiver: {fileID: 11400000, guid: f15e74d0597a47fe99ab15de5ceacec1, type: 2}
+  description: Get better at science?
+  question: Hobby?
+  resource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
+  required: 75
+  clearedMessage: Wow that's so intelligent.
+  known: 1
+  rewardResource: {fileID: 11400000, guid: 9b045515f3f3d654aa239535d4597e45, type: 2}
+  rewardAmount: 1
+  doEvent: 0
+  eventRef: {fileID: 0}
