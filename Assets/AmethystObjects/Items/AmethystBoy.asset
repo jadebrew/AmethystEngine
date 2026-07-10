@@ -17,6 +17,6 @@ MonoBehaviour:
   resource: {fileID: 11400000, guid: 72f71907b845f7f2a93dc8caf0b1d105, type: 2}
   modifier: 25
   requiresFocus: 0
-  animationState: useitem
-  itemID: held_generic
-  model: {fileID: 982284833680701942, guid: 9168f0665b3dabe32a9f0cc095c8f2c9, type: 3}
+  animationState: gaming
+  itemID: held_gamergirl
+  model: {fileID: 739203154957910728, guid: 91ff0249ae85d27609211898f7935b53, type: 3}
