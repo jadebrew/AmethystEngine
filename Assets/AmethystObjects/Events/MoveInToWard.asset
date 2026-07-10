@@ -19,4 +19,4 @@ MonoBehaviour:
   goal_id: doormat_ward
   postCamPoint_id: DocCamPoint
   changeMusic: 1
-  nextMusic: 
+  nextMusic: drone

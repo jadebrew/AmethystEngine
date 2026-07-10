@@ -14,6 +14,7 @@ public class PlayerBehavior : MonoBehaviour
     private InputAction interactAction;
     private InputAction useAction;
     private InputAction debugAction;
+    private InputAction startAction;
 
     private bool busy = false;
     private bool inDialogue = false;
@@ -50,6 +51,11 @@ public class PlayerBehavior : MonoBehaviour
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
 
+     public int gameState = 1;
+        //0 = debug
+        //1 = game
+        //2 = paused
+
      public AudioSource bgmDronedAudioSource;
      public AudioSource bgmHappyAudioSource;
      public AudioSource sfxSelectAudioSource;
@@ -66,6 +72,7 @@ public class PlayerBehavior : MonoBehaviour
         interactAction = playerInput.actions["Interact"];
         debugAction = playerInput.actions["Debug"];
         useAction = playerInput.actions["Use"];
+        startAction = playerInput.actions["Start"];
         resourceLevels = new Dictionary<string,int>();
         resourceTresholds = new Dictionary<string,int>();
         resourceIssue = resourceIssueDefault;
@@ -360,7 +367,7 @@ public class PlayerBehavior : MonoBehaviour
 
     void endDialogue()
     {
-        if (currentEntity.CameraPoint != null)
+        if (currentEntity != null && previousCamera != null)
         {
             currentCamera = previousCamera;
             mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
@@ -395,7 +402,8 @@ public class PlayerBehavior : MonoBehaviour
         bool turningLeft = move.x < -0.1f;
         bool turningRight = move.x > 0.1f;
 
-        if (!inDialogue) {
+        if (!inDialogue && gameState == 1) {
+
             // Turn
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0, move.x * turnSpeed * Time.fixedDeltaTime,     0));
 
@@ -410,9 +418,7 @@ public class PlayerBehavior : MonoBehaviour
         }
 
 
-
-
-        if (inDialogue && moveAction.WasPressedThisFrame()) {
+        if (inDialogue && gameState == 1 && moveAction.WasPressedThisFrame()) {
             if(movingForward){
                 DialogueUI.Instance.selected--;
                 sfxSelectAudioSource.Play();
@@ -466,7 +472,7 @@ public class PlayerBehavior : MonoBehaviour
             }
         }
 
-        if (useAction.WasPressedThisFrame())
+        if (gameState == 1 && useAction.WasPressedThisFrame())
         {
             if (!inDialogue && heldItem != null)
             {
@@ -482,7 +488,21 @@ public class PlayerBehavior : MonoBehaviour
 
         }
 
-        if (interactAction.WasPressedThisFrame())
+        if (startAction.WasPressedThisFrame())
+        {
+            if (gameState == 2)
+            {
+                gameState = 1;
+                animator.SetBool(heldItem.animationState,false);
+            }
+            else if (gameState == 1)
+            {
+                gameState = 2;
+                animator.SetBool(heldItem.animationState,true);
+            }
+        }
+
+        if (gameState == 1 && interactAction.WasPressedThisFrame())
         {
             if(!inDialogue)
             {
