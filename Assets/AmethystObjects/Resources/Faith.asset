@@ -15,10 +15,20 @@ MonoBehaviour:
   title: Bible Study
   min: 0
   max: 100
+<<<<<<< Updated upstream
   value: 100
   delta: 0
   complaint: I'm Faithless.
   tresholds: []
+=======
+  value: 0
+  delta: 0
+  complaint: I'm God!
+  tresholds:
+  - {fileID: 11400000, guid: 37f16c33ddbcdc546b4a83f791f7ec2b, type: 2}
+  - {fileID: 11400000, guid: 59e23e6d81da9849689a180c020ce1d9, type: 2}
+  - {fileID: 11400000, guid: 29c3a9810270e48afa1c4f2a48edbb01, type: 2}
+>>>>>>> Stashed changes
   currentTreshold: 0
   thoughtProcess:
   - Ah I see.

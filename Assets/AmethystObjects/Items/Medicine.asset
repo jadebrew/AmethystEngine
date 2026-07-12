@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   itemName: Medicine
   description: Should alleviate anxiety.
+<<<<<<< Updated upstream
   resource: {fileID: 11400000, guid: 72f71907b845f7f2a93dc8caf0b1d105, type: 2}
   modifier: -5
+=======
+  resource: {fileID: 11400000, guid: 1fe98f4a7fc6afb7690b06d1192bc5b4, type: 2}
+  modifier: 5
+  requiresFocus: 0
+>>>>>>> Stashed changes
   animationState: drinking
   itemID: held_generic

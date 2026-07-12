@@ -16,5 +16,9 @@ MonoBehaviour:
   description: You know what pizza is.
   resource: {fileID: 11400000, guid: e8eff323866eda62cbf33e7f4ccddb56, type: 2}
   modifier: 10
+<<<<<<< Updated upstream
+=======
+  requiresFocus: 0
+>>>>>>> Stashed changes
   animationState: drinking
   itemID: held_pizza

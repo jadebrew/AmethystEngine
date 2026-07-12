@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  questGiver: {fileID: 11400000, guid: 00d3f5595dcad5d20a0bae0d9fac216d, type: 2}
   description: I don't know. Everything. There is pizza in the kitchen if you want.
     Go eat some and come back to me, I need to talk.
   question: What's up?
+  confirmation: Ok.
   resource: {fileID: 11400000, guid: e8eff323866eda62cbf33e7f4ccddb56, type: 2}
-  required: 75
+  required: 50
   clearedMessage: I hope you ate well.
+<<<<<<< Updated upstream:Assets/AmethystObjects/Quests/Intro.asset
   done: 0
+=======
+  known: 0
+  rewardResource: {fileID: 11400000, guid: bb1cf4bce6cd8376cbce2d91d862e46e, type: 2}
+  rewardAmount: 1
+  doEvent: 1
+  eventRef: {fileID: 11400000, guid: 5824084d2e462f8fe80e25d42377b64f, type: 2}
+>>>>>>> Stashed changes:Assets/AmethystObjects/Quests/Intro_2.asset

@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Saturation
   min: 0
+<<<<<<< Updated upstream
   max: 100
   value: 100
+=======
+  max: 250
+  value: 0
+>>>>>>> Stashed changes
   delta: -1
   complaint: I'm dizzy.
   tresholds: []

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
+  m_Name: Apocalypse1
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  description: Hey how can I help you?
+  question: Apocalypse!
+  confirmation: 
+  resource: {fileID: 11400000, guid: bb1cf4bce6cd8376cbce2d91d862e46e, type: 2}
+  required: 0
+  clearedMessage: What are you talking about?
+  known: 1
+  rewardResource: {fileID: 11400000, guid: bb1cf4bce6cd8376cbce2d91d862e46e, type: 2}
+  rewardAmount: 5
+  doEvent: 0
+  eventRef: {fileID: 0}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wife
   m_EditorClassIdentifier: Assembly-CSharp::Entity
   fullname: Waifu
-  nickname: Waifu
+  nickname: Lotte
   defaultMessage: Oh hi.
   model: {fileID: 0}

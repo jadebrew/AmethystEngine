@@ -14,5 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Events
   teleport: 1
   toggleActive: 0
+  doCamMove: 0
+  camFollow: 0
   target_id: npc_nurse
   goal_id: doormat_home
+  postCamPoint_id: 
+  changeMusic: 1
+  nextMusic: drone
+  skybox: {fileID: 2100000, guid: 1dd27918c9d77d2078e1713e8112b202, type: 2}
+  changeLight: 1
+  color: {r: 1, g: 0, b: 0, a: 0}
+  changeScene: 0
+  sceneTitle: 
+  loadScreen: 1
+  loadScreenText: She knew I had a therapist, \ndidn't know she would call her in
+    a situation like this, but here we are.
+  setMania: 0
+  maniaResource: {fileID: 0}

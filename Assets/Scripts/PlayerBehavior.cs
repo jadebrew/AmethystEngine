@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.IO;
+using SimpleJSON;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -26,6 +29,8 @@ public class PlayerBehavior : MonoBehaviour
     private float gametimer;
     private int gametickrate = 1;
 
+    private string savePath;
+
     public int DebugModifier = 4;
     public bool debugMode = false;
 
@@ -34,21 +39,82 @@ public class PlayerBehavior : MonoBehaviour
     public Item heldItem;
     public GameObject heldItem3d;
 
+<<<<<<< Updated upstream
+=======
+    private JSONObject playerJson;
+
+
+>>>>>>> Stashed changes
     private string feelings = "Fine";
-    private string complaintDescription = "I feel fine.";
+    //private string complaintDescription = "I feel fine.";
     public Resource resourceIssueDefault;
     private Resource resourceIssue;
+
+    PersistentData persistentData;
 
     public Resource[] resources;
 
     public GameObject consoleReference;
+<<<<<<< Updated upstream
 
     private Dictionary<string,int> resourceLevels;
      private Dictionary<string,int> resourceTresholds;
 
+=======
+    private GameObject terminalRef;
+    public Dictionary<string,int> resourceLevels;
+     public Dictionary<string,int> resourceTresholds;
+
+     public int gameState = 1;
+        //0 = debug
+        //1 = game
+        //2 = paused
+
+     public AudioSource bgmDronedAudioSource;
+     public AudioSource bgmHappyAudioSource;
+     public AudioSource bgmAngelsAudioSource;
+     public AudioSource sfxSelectAudioSource;
+     public AudioSource confirmAudioSource;
+     public AudioSource denyAudioSource;
+
+     public GameObject[] entities;
+
+     public bool mania;
+     public Resource maniaResource;
+
+    void Awake()
+    {
+        persistentData = GameObject.Find("PersistentData").GetComponent<PersistentData>();
+        persistentData.player = this.gameObject;
+        if(persistentData.last_doormat_id.Length > 2)
+        {
+            GameObject goal = GameObject.Find(persistentData.last_doormat_id);
+            this.transform.position = goal.transform.position;
+        }
+        if(persistentData.last_cam_point_id.Length > 2)
+        {
+            GameObject goal = GameObject.Find(persistentData.last_cam_point_id);
+            mainCamera = Camera.main;
+            mainCamera.transform.position = goal.transform.position;
+        }
+
+        if (persistentData.loadGame)
+        {
+            persistentData.Load();
+            if(persistentData.last_event)
+                doEvent(persistentData.last_event, true);
+
+
+
+            gameState = 1;
+        }
+    }
+
+>>>>>>> Stashed changes
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
@@ -59,13 +125,17 @@ public class PlayerBehavior : MonoBehaviour
         resourceLevels = new Dictionary<string,int>();
         resourceTresholds = new Dictionary<string,int>();
         resourceIssue = resourceIssueDefault;
+        mainCamera = Camera.main;
+
         initItem();
+        gameState = 1;
 
 
         foreach (Resource res in resources)
         {
             resourceLevels.Add(res.title,0);
             resourceTresholds.Add(res.title,0);
+            Debug.Log("Initialized " + res.title + " as " + res.value);
         }
     }
 
@@ -76,9 +146,13 @@ public class PlayerBehavior : MonoBehaviour
 
         if (!inDialogue && other.TryGetComponent(out CameraTrigger CameraPoint))
         {
+<<<<<<< Updated upstream
             currentCamera = CameraPoint;
             mainCamera = Camera.main;
             mainCamera.transform.SetPositionAndRotation(currentCamera.GetObject().transform.position, currentCamera.GetObject().transform.rotation);
+=======
+            currentCamera = CameraPoint.GetObject();
+>>>>>>> Stashed changes
         }
     }
 
@@ -113,6 +187,20 @@ public class PlayerBehavior : MonoBehaviour
             menu.Add("Bye");
             menutype = "Say";
         }
+<<<<<<< Updated upstream
+=======
+
+        if (entity.CameraPoint != null)
+        {
+            previousCamera = currentCamera;
+            currentCamera = entity.CameraPoint;
+            if (entity.forceView)
+            {
+                mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
+                mainCamera.GetComponent<lookat>().follow = false;
+            }
+        }
+>>>>>>> Stashed changes
         string[] textmenu = menu.ToArray();
 
         DialogueUI.Instance.SetMenu(menutype,textmenu);
@@ -186,6 +274,7 @@ public class PlayerBehavior : MonoBehaviour
                 goal = resource.tresholds[currentTreshold].required;
             }
         }
+
         //increase the resource by the modifier, this means a modifier has to be always positive -> hunger is not a good resource bc eating shouldnt increase hunger, but eating does increase saturation, while a modifier can be negative, the goal is always the max value, so this can be changed later if wanted, but right now not a priority.
         if (gametick){
             int modifier = 1;
@@ -241,42 +330,122 @@ public class PlayerBehavior : MonoBehaviour
         animator.SetBool(heldItem.animationState,false);
     }
 
-    void doEvent(Entity entity)
+    void doEvent(Events currentEvent, bool denyLoadScreen)
     {
-        Events currentEvent = entity.quests[entity.currentQuest].eventRef;
         GameObject target = GameObject.Find(currentEvent.target_id);
         GameObject goal = GameObject.Find(currentEvent.goal_id);
         GameObject camPoint = GameObject.Find(currentEvent.postCamPoint_id);
 
+        mainCamera.GetComponent<lookat>().moveTowards = currentEvent.camFollow;
+
+
         if (currentEvent.teleport)
         {
 
-            target.transform.position = goal.transform.position;
+            target.transform.SetPositionAndRotation(goal.transform.position, goal.transform.rotation);
+            if (target.tag == "Player")
+                persistentData.last_doormat_id = currentEvent.goal_id;
+            persistentData.Save();
         }
             else if (currentEvent.toggleActive)
         {
             target.SetActive(false);
         }
+
         if (currentEvent.doCamMove)
         {
             mainCamera.transform.position = camPoint.transform.position;
+            persistentData.last_cam_point_id = currentEvent.postCamPoint_id;
+            endDialogue();
         }
+<<<<<<< Updated upstream
+=======
+        if (currentEvent.changeMusic)
+        {
+            if (currentEvent.nextMusic == "drone")
+            {
+                bgmHappyAudioSource.Stop();
+                bgmDronedAudioSource.Play();
+                bgmAngelsAudioSource.Stop();
+                persistentData.last_music_id = "drone";
+            }
+            if (currentEvent.nextMusic == "angels")
+            {
+                bgmHappyAudioSource.Stop();
+                bgmDronedAudioSource.Stop();
+                bgmAngelsAudioSource.Play();
+                persistentData.last_music_id = "angels";
+            }
+        }
+        if (currentEvent.skybox != null)
+        {
+
+            RenderSettings.skybox=currentEvent.skybox;
+        }
+
+        if (currentEvent.changeLight)
+        {
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("ColorableLight");
+            foreach (GameObject lightGo in objs)
+            {
+                lightGo.GetComponent<Light>().color = currentEvent.color;
+            }
+            RenderSettings.fogColor = currentEvent.color;
+        }
+        if (currentEvent.changeScene)
+        {
+           SceneManager.LoadScene(currentEvent.sceneTitle, LoadSceneMode.Single);
+        }
+
+        if (currentEvent.setMania)
+        {
+            mania = true;
+            maniaResource = currentEvent.maniaResource;
+        }
+
+        if (currentEvent.loadScreen)
+        {
+            endDialogue();
+            persistentData.loadGame = true;
+            mainCamera.GetComponent<lookat>().follow = true;
+            mainCamera.GetComponent<lookat>().moveTowards = true;
+            persistentData.currentBrief = currentEvent.loadScreenText;
+            persistentData.Save();
+            SceneManager.LoadScene("LoadingScene", LoadSceneMode.Single);
+            gameState = 1;
+        }
+
+>>>>>>> Stashed changes
     }
 
     void updateDialogue(Entity entity, int topic)
     {
+<<<<<<< Updated upstream
         if (topic == 1)
+=======
+        var quest = entity.quests[entity.currentQuest];
+        if (topic == 2)
+>>>>>>> Stashed changes
         {
             //topic is your held item
 
             //DialogueUI.Instance.SetText("Oh wow! Look at your " + heldItem.itemName + "!\nMaybe if you didn't care so much about " + heldItem.resource.title + ", you'd have a job by now.");
-            if (entity.quests[entity.currentQuest])
+            if (quest != null)
             {
-                if (entity.quests[entity.currentQuest].known && heldItem.resource == entity.quests[entity.currentQuest].resource)
+                if (mania)
+                {
+                     DialogueUI.Instance.SetText("Whatever helps you.");
+                }
+                else if (quest.known && heldItem.resource == quest.resource)
                 {
 
                     // the item is right but your resource isnt high enough
+<<<<<<< Updated upstream
                     DialogueUI.Instance.SetText(heldItem.itemName + " works!\nWork on your " + entity.quests[entity.currentQuest].resource.title + " and come back!");
+=======
+                    DialogueUI.Instance.SetText(heldItem.itemName + " works!\nWork on your " + quest.resource.title + " and come back!");
+                    denyAudioSource.Play();
+>>>>>>> Stashed changes
 
                 } else {
                     // the item is wrong
@@ -286,12 +455,25 @@ public class PlayerBehavior : MonoBehaviour
         } else if (topic == 3)
         {
             //complain about your feelings TODO
+<<<<<<< Updated upstream
             DialogueUI.Instance.SetText("Make sure you work on your " + resourceIssue.title);
         } else if (topic == 2)
+=======
+            if (!mania)
+            {
+                DialogueUI.Instance.SetText("Make sure you work on your " + resourceIssue.title);
+            } else {
+                DialogueUI.Instance.SetText("You scare me.");
+            }
+
+            confirmAudioSource.Play();
+        } else if (topic == 1)
+>>>>>>> Stashed changes
         {
 
-            if (entity.quests[entity.currentQuest])
+            if (quest != null)
             {
+<<<<<<< Updated upstream
                 if ( resourceLevels[entity.quests[entity.currentQuest].resource.title] >= entity.quests[entity.currentQuest].required)
                 {
                     //the item is right, you are aware of the quest, and you have enough resource
@@ -305,6 +487,42 @@ public class PlayerBehavior : MonoBehaviour
                 } else {
                     DialogueUI.Instance.SetText(entity.quests[entity.currentQuest].description);
                     entity.quests[entity.currentQuest].known = true;
+=======
+
+                if (!entity.met)
+                {
+                    entity.met = true;
+                    quest.known = false;
+                }
+                if (quest.known && resourceLevels[quest.resource.title] >= quest.required)
+                {
+                    //the item is right, you are aware of the quest, and you have enough resource
+                    DialogueUI.Instance.SetText(quest.clearedMessage);
+                    resourceTresholds[quest.resource.title]++;
+
+                    if (quest.rewardResource != null)
+                    {
+                        resourceLevels[quest.rewardResource.title] += quest.rewardAmount;
+                        Debug.Log(quest.rewardResource.title + ": " + resourceLevels[quest.rewardResource.title]);
+
+                    }
+                    if (entity.quests.Length-1 > entity.currentQuest)
+                    {
+                        entity.currentQuest++;
+                        PlayerPrefs.SetInt(entity.id, entity.currentQuest);
+                        quest.known = false;
+                        confirmAudioSource.Play();
+                    }
+                    if (quest.doEvent)
+                    {
+                        confirmAudioSource.Play();
+                        doEvent(quest.eventRef, false);
+                    }
+                } else {
+                    DialogueUI.Instance.SetText(quest.description);
+                    quest.known = true;
+                    confirmAudioSource.Play();
+>>>>>>> Stashed changes
                 }
             }
         } else if (topic == 4)
@@ -317,10 +535,29 @@ public class PlayerBehavior : MonoBehaviour
 
     void endDialogue()
     {
+<<<<<<< Updated upstream
+=======
+        if (previousCamera != null)
+        {
+            currentCamera = previousCamera;
+            mainCamera.GetComponent<lookat>().follow = true;
+            previousCamera = null;
+        }
+>>>>>>> Stashed changes
         inDialogue = false;
         inMonologue = false;
         DialogueUI.Instance.Hide();
         animator.SetBool("talking",false);
+<<<<<<< Updated upstream
+=======
+        foreach (Transform child in viewing.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+        if (currentEntity != null && currentEntity.forceView)
+        {
+            mainCamera.transform.SetPositionAndRotation(currentCamera.transform.position, currentCamera.transform.rotation);
+        }
+>>>>>>> Stashed changes
     }
 
     void initItem()
@@ -338,13 +575,54 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        mainCamera = Camera.main;
+        if (gameState == 1)
+            UpdateGame();
+
+        if (viewing == null)
+            viewing = GameObject.Find("Viewing");
+
+        if (startAction.WasPressedThisFrame())
+        {
+            if (gameState == 2)
+            {
+                gameState = 1;
+                animator.SetBool(heldItem.animationState,false);
+            }
+            else if (gameState == 1)
+            {
+                gameState = 2;
+                animator.SetBool(heldItem.animationState,true);
+            }
+        }
+    }
+
+
+    void UpdateGame()
+    {
         Vector2 move = moveAction.ReadValue<Vector2>();
         bool movingForward = move.y > 0.1f;
         bool movingBackward = move.y < -0.1f;
         bool turningLeft = move.x < -0.1f;
         bool turningRight = move.x > 0.1f;
 
+<<<<<<< Updated upstream
         if (!inDialogue) {
+=======
+
+        if (mainCamera.GetComponent<lookat>() != null & !mainCamera.GetComponent<lookat>().moveTowards && currentCamera != null)
+        {
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, currentCamera.transform.position,Time.fixedDeltaTime*5);
+        }
+        else if (currentCamera == null)
+        {
+            mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, this.transform.position ,Time.fixedDeltaTime*5);
+        }
+
+
+        if (!inDialogue) {
+
+>>>>>>> Stashed changes
             // Turn
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0, move.x * turnSpeed * Time.fixedDeltaTime,     0));
 
@@ -359,8 +637,11 @@ public class PlayerBehavior : MonoBehaviour
         }
 
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
         if (inDialogue && moveAction.WasPressedThisFrame()) {
             if(movingForward){
                 DialogueUI.Instance.selected--;
@@ -374,13 +655,13 @@ public class PlayerBehavior : MonoBehaviour
         gametimer+=Time.fixedDeltaTime;
         if (gametimer>gametickrate)
         {
-            print(resourceLevels["Saturation"]);
             resourceIssue = resourceIssueDefault;
             feelings = "I'm fine.";
             canFocus = true;
             // Apply all delta values for each Resource
             foreach (var r in resources)
             {
+
                 resourceLevels[r.title] += r.delta;
                 if (resourceLevels[r.title] < 0)
                 {
@@ -389,7 +670,12 @@ public class PlayerBehavior : MonoBehaviour
                     feelings = r.complaint;
                     canFocus = false;
                 }
-
+                //playerJson[r.title] = resourceLevels[r.title];
+            }
+            if (mania)
+            {
+                canFocus = true;
+                feelings = maniaResource.complaint;
             }
             gametimer = 0;
             if (busy)
@@ -414,6 +700,10 @@ public class PlayerBehavior : MonoBehaviour
             consoleReference.SetActive(!consoleReference.activeSelf);
         }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         if (interactAction.WasPressedThisFrame())
         {
             if(!inDialogue)
@@ -478,6 +768,7 @@ public class PlayerBehavior : MonoBehaviour
                     return;
                 }
             }
+
         }
     }
 }

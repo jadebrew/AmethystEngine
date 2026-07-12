@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Nurse_Intro_2
   m_EditorClassIdentifier: Assembly-CSharp::Quest
   questGiver: {fileID: 11400000, guid: 93c7a33ff371adffdae138940276e125, type: 2}
-  description: Please try to find a hobby?
-  question: What now?
+  description: We can not help you right now, please wait? Try to find a hobby. Talk
+    to the tennants and see what they like!
+  question: Help?
+  confirmation: Ok.
   resource: {fileID: 11400000, guid: 4a002c371a9252f23bfb4dae10e03d5f, type: 2}
   required: 25
   clearedMessage: 

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
   m_Name: Nurse_Intro
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  questGiver: {fileID: 11400000, guid: 93c7a33ff371adffdae138940276e125, type: 2}
   description: Your wife has been worried about your mental health, we prepared a
-    hospital bed for you, would you come with us?
-  question: I'm ready.
+    psychiatric bed for you, would you come with us?
+  question: Who are you?
+  confirmation: I'm ready.
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   required: 0
   clearedMessage: 'Excellent, we''ll be there shortly. '

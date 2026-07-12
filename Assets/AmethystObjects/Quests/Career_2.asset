@@ -12,10 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
   m_Name: Career_2
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  questGiver: {fileID: 11400000, guid: 00d3f5595dcad5d20a0bae0d9fac216d, type: 2}
   description: You still don't have a job, go find one.
   question: Work?
+  confirmation: 
   resource: {fileID: 11400000, guid: 88736196ddae2737f82731eff0f97dc6, type: 2}
   required: 50
+<<<<<<< Updated upstream
   clearedMessage: Well, apply for this one then? See how it goes.
   done: 0
+=======
+  clearedMessage: Well,this won't work either, try to find a different one.
+  known: 0
+  rewardResource: {fileID: 11400000, guid: bb1cf4bce6cd8376cbce2d91d862e46e, type: 2}
+  rewardAmount: 1
+  doEvent: 0
+  eventRef: {fileID: 0}
+>>>>>>> Stashed changes

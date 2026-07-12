@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee217c8a4666779da56323f09cbe4d0, type: 3}
+  m_Name: AmethystBoy
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: GameGirl
+  description: GameGirl is the latest technology in handheld entertainment.
+  resource: {fileID: 11400000, guid: 72f71907b845f7f2a93dc8caf0b1d105, type: 2}
+  modifier: 10
+  requiresFocus: 0
+  animationState: gaming
+  itemID: held_gamergirl
+  model: {fileID: 739203154957910728, guid: 91ff0249ae85d27609211898f7935b53, type: 3}

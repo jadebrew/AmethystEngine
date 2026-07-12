@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781639196719dc8b0b57209183332a9a, type: 3}
+  m_Name: Intro_1
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  questGiver: {fileID: 11400000, guid: 00d3f5595dcad5d20a0bae0d9fac216d, type: 2}
+  description: Hi, I don't know.
+  question: What's up?
+  confirmation: Ok.
+  resource: {fileID: 11400000, guid: e8eff323866eda62cbf33e7f4ccddb56, type: 2}
+  required: 0
+  clearedMessage: Leave me alone.
+  known: 0
+  rewardResource: {fileID: 0}
+  rewardAmount: 0
+  doEvent: 0
+  eventRef: {fileID: 0}

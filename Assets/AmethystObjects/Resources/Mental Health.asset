@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Mental Health
   min: 1
-  max: 100
+  max: 150
   value: 25
   delta: -1
   complaint: I'm anxious.

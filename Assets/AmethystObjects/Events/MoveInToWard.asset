@@ -15,6 +15,21 @@ MonoBehaviour:
   teleport: 1
   toggleActive: 0
   doCamMove: 1
+  camFollow: 0
   target_id: player
   goal_id: doormat_ward
   postCamPoint_id: DocCamPoint
+<<<<<<< Updated upstream
+=======
+  changeMusic: 0
+  nextMusic: drone
+  skybox: {fileID: 2100000, guid: d564f5c36204bb7f69d736025bc4c19c, type: 2}
+  changeLight: 1
+  color: {r: 0.69882524, g: 0.9811321, b: 0.9811321, a: 0}
+  changeScene: 0
+  sceneTitle: 
+  loadScreen: 1
+  loadScreenText: Chapter 2:\n\nSuppose it's better than homeless...
+  setMania: 0
+  maniaResource: {fileID: 0}
+>>>>>>> Stashed changes

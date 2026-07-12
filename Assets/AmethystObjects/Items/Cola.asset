@@ -16,5 +16,9 @@ MonoBehaviour:
   description: Good for my health.
   resource: {fileID: 11400000, guid: 9b82969dbda8932479d6d4c725f56305, type: 2}
   modifier: 10
+<<<<<<< Updated upstream
+=======
+  requiresFocus: 0
+>>>>>>> Stashed changes
   animationState: drinking
   itemID: held_bottle

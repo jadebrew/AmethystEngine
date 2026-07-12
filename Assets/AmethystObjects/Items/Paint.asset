@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Paint
   description: Makes things another color.
   resource: {fileID: 11400000, guid: 575ef231fb8cda7c1b3983de52a18b5e, type: 2}
-  modifier: 5
+  modifier: 1
   requiresFocus: 1
   animationState: useitem
   itemID: held_generic

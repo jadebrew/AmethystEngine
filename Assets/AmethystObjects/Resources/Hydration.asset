@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Resource
   title: Hydration
   min: 0
+<<<<<<< Updated upstream
   max: 100
+=======
+  max: 250
+>>>>>>> Stashed changes
   value: 100
   delta: -1
   complaint: I'm dizzy.
